@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int m;
+    cin >> m;
+    
+    const double their_speed = 30 * 0.0254;
+    const double relative_speed = 1.0 - their_speed;
+    double time = m / relative_speed;
+    
+    int seconds = static_cast<int>(ceil(time));
+    
+    cout << seconds << endl;
+    
+    return 0;
+}
