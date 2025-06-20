@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int x;
+    cin >> x;
+    if(x > 0) cout << "正數" << endl;
+    else if(x == 0) cout << 0 << endl;
+    else cout << "負數" << endl;
+    return 0;
+}
