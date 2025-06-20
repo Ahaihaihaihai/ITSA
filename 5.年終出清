@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int N, cost;
+    cin >> N;
+    cost = N * 100;
+    if(N >= 100) cost  *= 0.7;
+    else if(N >= 30 && N < 100) cost *= 0.8;
+    else if(N >= 10) cost *= 0.9;
+    cout << cost << endl;
+}
