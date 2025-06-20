@@ -1,0 +1,22 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int minutes;
+    cin >> minutes;
+    
+    double cost = minutes * 0.9;
+    
+    if (minutes >= 1500) {
+        cost *= 0.79;
+    } 
+    else if (minutes > 800) {
+        cost *= 0.9;
+    }
+    
+    cout << fixed << setprecision(1) << cost << endl;
+    
+    return 0;
+}
