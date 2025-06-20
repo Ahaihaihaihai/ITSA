@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int N;
+    cin >> N;
+    while(N--){
+        int x;
+        cin >> x;
+        if(x <= 59) cout << "不及格" << endl;
+        else if(x >= 60 && x <= 69) cout << "丙等" << endl;
+        else if(x >= 70 && x <= 79) cout << "乙等" << endl;
+        else if(x >= 80 && x <= 89) cout << "甲等" << endl;
+        else cout << "優等" << endl;
+    }
+
+    return 0;
+}
