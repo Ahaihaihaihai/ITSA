@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int h1, m1, h2, m2;
+    cin >> h1 >> m1 >> h2 >> m2;
+    int total = (h2*60 + m2) - (h1*60 + m1);
+    if(total >= 0 && total <= 120) cout << (total/30)*30 << endl; //first 2 hour
+    if(total > 120 && total <= 240) cout << 120 + ((total - 120)/30)*40 << endl; // first 4 hour
+    if(total > 240) cout << 120 + 160 + (total - 240)/30*60 << endl; //more than 6 hour
+
+    return 0;
+}
