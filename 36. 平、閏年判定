@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int input;
+    cin >> input;
+
+    if(input % 100 == 0){
+        if(input % 4 == 0) cout << "Bissextile Year" << endl;
+        
+    }else cout << "Common Year" << endl;
+    return 0;
+}
