@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+	int input;
+    cin >> input;
+    if(input >= 3 && input <= 5) cout << "Spring" << endl;
+    else if(input >= 6 && input <= 8) cout <<"Summer"<<endl;
+    else if(input >= 9 && input <=11) cout<<"Autumn"<<endl;
+    else cout <<"Winter"<<endl;
+	
+	return 0;
+}
