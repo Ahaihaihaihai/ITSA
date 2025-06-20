@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main(){
+
+    int x,y;
+    cin >> x >> y;
+    double height = y / 100.0; 
+    
+    cout <<fixed<<setprecision(2)<< x/pow(height, 2) << endl;
+
+    return 0;
+}
