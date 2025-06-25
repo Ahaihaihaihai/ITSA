@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int char_to_num(char x) {
+    return x - '0';
+}
+
+bool is_group_unit(int idx) {
+    return (idx == 4 || idx == 8 || idx == 12);
+}
+
+bool is_zero_group(const string& number, int idx) {
+    int len = number.length();
+    int start = len - idx - 1;
+    for (int i = start; i < start + 4 && i < len; i++) {
+        if (number[i] != '0') return false;
+    }
+    return true;
+}
+
+int main() {
+    const vector<string> digit = {"零", "壹", "貳", "參", "肆", "伍", "陸", "柒", "捌", "玖"};
+    const vector<string> unit = {"", "拾", "佰", "仟", "萬", "拾", "佰", "仟", "億", "拾", "佰", "仟", "兆"};
+
+    int input_num;
+    cin >> input_num;
+
+    if (input_num == 0) {
+        cout << "零" << endl;
+        return 0;
+    }
+    if (input_num > 500000000) return 0;
+
+    string number = to_string(input_num);
+    vector<string> myOutput;
+
+    int len = number.length();
+    bool just_added_zero = false;
+
+    for (int i = 0; i < len; i++) {
+        int idx = len - 1 - i;
+        int num = char_to_num(number[i]);
+
+        if (num == 0) {
+            just_added_zero = true;
+            if (is_group_unit(idx) && !is_zero_group(number, idx)) {
+                myOutput.push_back(unit[idx]);
+                just_added_zero = false;
+            }
+        } else {
+            if (just_added_zero) {
+                myOutput.push_back("零");
+                just_added_zero = false;
+            }
+
+            // Only suppress 壹 if at the beginning and unit is 拾, 佰, or 萬 (not 仟!)
+            bool is_leading = (i == 0);
+            bool suppressible_unit = (unit[idx] == "拾" || unit[idx] == "佰" || unit[idx] == "萬");
+
+            if (num == 1 && is_leading && suppressible_unit) {
+                // Skip "壹"
+            } else {
+                myOutput.push_back(digit[num]);
+            }
+
+            if (idx > 0) {
+                myOutput.push_back(unit[idx]);
+            }
+        }
+    }
+
+    for (const string& word : myOutput) {
+        cout << word;
+    }
+    cout << endl;
+
+    return 0;
+}
